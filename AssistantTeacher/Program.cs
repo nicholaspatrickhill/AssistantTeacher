@@ -11,12 +11,17 @@ namespace AssistantTeacher
             Thread.Sleep(500);
             WriteLine("I'll be your assistant today.");
             Thread.Sleep(500);
+            WriteLine("\n(Press any key to continue...)");
+            ReadKey();
             GetClassName();
         }
 
         private static void GetClassName()
         {
-            WriteLine("To get started, please tell me the name of the class you're teaching: ");
+            Clear();
+            WriteLine("To get started, I'll need a bit of information.");
+            Thread.Sleep(500);
+            WriteLine("First, please tell me the name of the class you're teaching: ");
 
             string? className = ReadLine();
 
@@ -33,24 +38,27 @@ namespace AssistantTeacher
 
             if (confirmClassName == "y")
             {
-                WriteLine("Awesome. Now please tell me the total number of students in your class: ");
+                WriteLine("\nAwesome. Please press any key to continue...");
+                ReadKey();
                 GetTotalNumberOfStudents();
             }
             else if (confirmClassName == "n")
             {
-                WriteLine("Oh no! Let's start over.");
+                WriteLine("\nOh no! Let's start over.");
                 GetClassName();
             }
             else
             {
-                WriteLine("I'm sorry, I don't recognize that input. Please try again.");
-                ConfirmClassName();
+                WriteLine("\nI'm sorry, I don't recognize that input. Please press any key to try again.");
+                ReadKey();
+                GetClassName();
             }
         }
 
         private static void GetTotalNumberOfStudents()
         {
-            WriteLine("Please tell me the total number of students in your class: ");
+            Clear();
+            WriteLine("Next, please tell me the total number of students in your class: ");
 
             int studentNum = Convert.ToInt32(Console.ReadLine());
 
@@ -66,7 +74,8 @@ namespace AssistantTeacher
 
             if (confimStudentNum == "y")
             {
-                WriteLine("Great! Enter Their names below: ");
+                WriteLine("\nExcellent. Please press any key to continue...");
+                ReadKey();
                 CreateStudentList(studentNum);
             }
             else if (confimStudentNum == "n")
@@ -77,12 +86,15 @@ namespace AssistantTeacher
             else
             {
                 WriteLine("I'm sorry, I don't recognize that input. Please try again.");
-                ConfirmStudentNum(studentNum);
+                ReadKey();
+                GetTotalNumberOfStudents();
             }  
         }
 
         private static void CreateStudentList(int studentNum)
         {
+            WriteLine("\nGreat! Enter Their names below: ");
+
             string[] studentNames = new string[studentNum];
 
             for (int i = 0; i < studentNames.Length; i++)
