@@ -2,14 +2,17 @@
 
 namespace AssistantTeacher
 {
-    public class Program
+
+    // TODO seperate these methods into other classes
+
+    class Program
     {
         static void Main(string[] args)
         {
             Title = "AssistantTeacher";
             WriteLine("Hello, Teacher!");
             Thread.Sleep(500);
-            WriteLine("I'll be your assistant today.");
+            WriteLine("I'm happy to be your assistant today.");
             Thread.Sleep(500);
             WriteLine("\nPress any key to continue...");
             ReadKey();
@@ -96,7 +99,10 @@ namespace AssistantTeacher
         private static void CreateStudentList(int studentNum)
         {
             Clear();
-            WriteLine("Now, please enter the names of your students: ");
+            WriteLine("Now, please enter the names of your students. ");
+            Thread.Sleep(500);
+            WriteLine("You may use formats like [ FirstName LastName ] or [ LastName, FirstName ]");
+            WriteLine("\nPlease enter the student names below: ");
 
             string[] studentNames = new string[studentNum];
 
@@ -105,17 +111,29 @@ namespace AssistantTeacher
                 studentNames[i] = ReadLine();
             }
 
-            WriteLine("\nGreat! That's all of your students. Please press any key and I will create an alphabtized list of their names.");
-            ReadKey();
+            // TODO MAKE A CONFIRMATION OF STUDENT LIST SCREEN
 
+            WriteLine("\nGreat! That's all of your students.");
+            Thread.Sleep(500);
+            WriteLine("Please press any key and I will create an alphabatized list of their names on the following screen...");
+            ReadKey();
+            CreateSortedStudentList(studentNames);
+        }
+
+        private static void CreateSortedStudentList(string[] studentNames)
+        {
             Array.Sort(studentNames);
 
-            Console.WriteLine("\nHere is an alphabatized list of your students:");
+            Clear();
+            Console.WriteLine("Here are your students: \n");
 
             for (int i = 0; i < studentNames.Length; i++)
             {
                 WriteLine(studentNames[i]);
             }
+
+            // TODO MAKE A PRINT TO FILE SCREEN AS NEXT OPTION
+            // MAKE AN EXIT METHOD
         }
     }
 }
