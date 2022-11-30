@@ -7,11 +7,11 @@ namespace AssistantTeacher
         static void Main(string[] args)
         {
             Title = "AssistantTeacher";
-            WriteLine("Hello, Teach!");
+            WriteLine("Hello, Teacher!");
             Thread.Sleep(500);
             WriteLine("I'll be your assistant today.");
             Thread.Sleep(500);
-            WriteLine("\n(Press any key to continue...)");
+            WriteLine("\nPress any key to continue...");
             ReadKey();
             GetClassName();
         }
@@ -44,12 +44,13 @@ namespace AssistantTeacher
             }
             else if (confirmClassName == "n")
             {
-                WriteLine("\nOh no! Let's start over.");
+                WriteLine("\nOh No! Press any key to start over...");
+                ReadKey();
                 GetClassName();
             }
             else
             {
-                WriteLine("\nI'm sorry, I don't recognize that input. Please press any key to try again.");
+                WriteLine("\nI'm sorry, I don't recognize that input. Please press any key to try again...");
                 ReadKey();
                 GetClassName();
             }
@@ -64,7 +65,7 @@ namespace AssistantTeacher
 
             Thread.Sleep(500);
             WriteLine("\nYou have " + studentNum + " students! Is that correct?");
-            WriteLine("Press y and press enter to confirm. Or type n and press enter to start over");
+            WriteLine("Press y and press enter to confirm. Or type n and press enter to start over.");
             ConfirmStudentNum(studentNum);
         }
 
@@ -74,18 +75,19 @@ namespace AssistantTeacher
 
             if (confimStudentNum == "y")
             {
-                WriteLine("\nExcellent. Please press any key to continue...");
+                WriteLine("\nExcellent! Please press any key to continue...");
                 ReadKey();
                 CreateStudentList(studentNum);
             }
             else if (confimStudentNum == "n")
             {
-                WriteLine("Oh No! Let's start over.");
+                WriteLine("\nOh No! Press any key to start over...");
+                ReadKey();
                 GetTotalNumberOfStudents();
             }
             else
             {
-                WriteLine("I'm sorry, I don't recognize that input. Please try again.");
+                WriteLine("\nI'm sorry, I don't recognize that input. Press any key to try again...");
                 ReadKey();
                 GetTotalNumberOfStudents();
             }  
@@ -93,7 +95,8 @@ namespace AssistantTeacher
 
         private static void CreateStudentList(int studentNum)
         {
-            WriteLine("\nGreat! Enter Their names below: ");
+            Clear();
+            WriteLine("Now, please enter the names of your students: ");
 
             string[] studentNames = new string[studentNum];
 
@@ -101,6 +104,9 @@ namespace AssistantTeacher
             {
                 studentNames[i] = ReadLine();
             }
+
+            WriteLine("\nGreat! That's all of your students. Please press any key and I will create an alphabtized list of their names.");
+            ReadKey();
 
             Array.Sort(studentNames);
 
