@@ -34,7 +34,7 @@ namespace AssistantTeacher
             CreateSortedStudentList(studentNames);
         }
 
-        private static void CreateSortedStudentList(string[] studentNames)
+        public static void CreateSortedStudentList(string[] studentNames)
         {
             Array.Sort(studentNames);
 
@@ -47,8 +47,8 @@ namespace AssistantTeacher
                 WriteLine(studentOrder + ". " + studentNames[i]);
             }
 
-            // TODO MAKE A PRINT TO FILE SCREEN AS NEXT OPTION
-            // MAKE AN EXIT METHOD
+            StudentListTextFile.CreateTextFile(studentNames);
         }
+
     }
 }
