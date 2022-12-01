@@ -29,7 +29,7 @@ namespace AssistantTeacher
 
             WriteLine("\nGreat! That's all of your students.");
             Thread.Sleep(500);
-            WriteLine("Please press any key and I will create an alphabatized list of their names on the following screen...");
+            WriteLine("Please press any key and I will compiled your class information on the following screen...");
             ReadKey();
             CreateSortedStudentList(studentNames, className);
         }
@@ -39,7 +39,8 @@ namespace AssistantTeacher
             Array.Sort(studentNames);
 
             Clear();
-            Console.WriteLine("Here are your students: \n");
+            // TODO add teacher name
+            Console.WriteLine("Class: " + className + "\n");
 
             for (int i = 0; i < studentNames.Length; i++)
             {
@@ -47,7 +48,7 @@ namespace AssistantTeacher
                 WriteLine(studentOrder + ". " + studentNames[i]);
             }
 
-            StudentListTextFile.CreateTextFile(studentNames, className);
+            StudentListTextFile.ConfirmCreateTextFile(studentNames, className);
         }
     }
 }
