@@ -14,7 +14,7 @@ namespace AssistantTeacher
             Clear();
             WriteLine("To get started, I'll need a bit of information.");
             Thread.Sleep(500);
-            WriteLine("First, please tell me the name of the class you're teaching: ");
+            WriteLine("First, please tell me the name of the class that you're teaching: ");
 
             string? className = ReadLine();
 

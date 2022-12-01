@@ -14,12 +14,38 @@ namespace AssistantTeacher
             Clear();
             WriteLine("Next, please tell me the total number of students in your class: ");
 
-            int studentNum = Convert.ToInt32(Console.ReadLine());
+            string? teacherInput = ReadLine();
+            int studentNumber;
 
-            Thread.Sleep(500);
-            WriteLine("\nYou have " + studentNum + " students! Is that correct?");
-            WriteLine("Press y and press enter to confirm. Or type n and press enter to start over.");
-            ConfirmStudentNum(studentNum);
+            try
+            {
+                studentNumber = Int32.Parse(teacherInput);
+
+                if (studentNumber > 30)
+                {
+                    Thread.Sleep(500);
+                    WriteLine("\nThat's a lot of students! I'm sorry but I can only support classes of up to 30 students.");
+                    WriteLine("Press any key to exit...");
+                    ReadKey();
+                    Environment.Exit(0);
+                }
+                else if (studentNumber < 30)
+                {
+
+                    Thread.Sleep(500);
+                    WriteLine("\nYou have " + studentNumber + " students! Is that correct?");
+                    WriteLine("Press y and press enter to confirm. Or type n and press enter to start over.");
+                    ConfirmStudentNum(studentNumber);
+                }
+            }
+            catch (FormatException)
+            {
+                Thread.Sleep(500);
+                WriteLine("\n{0} does not appear to be a number", teacherInput);
+                WriteLine("Press any key to try again...");
+                ReadKey();
+                GetTotalNumberOfStudents();
+            }
         }
 
         private static void ConfirmStudentNum(int studentNum)
