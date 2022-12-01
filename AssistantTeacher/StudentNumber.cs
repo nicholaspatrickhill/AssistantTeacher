@@ -31,10 +31,9 @@ namespace AssistantTeacher
                 }
                 else if (studentNumber < 30)
                 {
-
                     Thread.Sleep(500);
                     WriteLine("\nYou have " + studentNumber + " students! Is that correct?");
-                    WriteLine("\nPress y and press enter to confirm. Or type n and press enter to start over.");
+                    WriteLine("\nType y and press enter to confirm. Or type n and press enter to start over.");
                     ConfirmStudentNum(studentNumber);
                 }
             }

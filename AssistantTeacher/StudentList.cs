@@ -49,6 +49,5 @@ namespace AssistantTeacher
 
             StudentListTextFile.CreateTextFile(studentNames);
         }
-
     }
 }
