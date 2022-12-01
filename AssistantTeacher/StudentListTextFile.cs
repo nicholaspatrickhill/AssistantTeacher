@@ -9,7 +9,7 @@ namespace AssistantTeacher
 {
     public class StudentListTextFile
     {
-        public static void CreateTextFile(string[] studentNames)
+        public static void CreateTextFile(string[] studentNames, string className)
         {
             Thread.Sleep(500);
             WriteLine("\nWould you like to save the list as a text file?");
@@ -19,9 +19,10 @@ namespace AssistantTeacher
 
             if (confirmSaveToTextFile == "y")
             {
-
                 string myStudentList = @"C:\temp\MyStudentList.txt";
                 using StreamWriter file = new StreamWriter(myStudentList);
+
+                file.WriteLine(className);
 
                 for (int i = 0; i < studentNames.Length; i++)
                 {
@@ -37,7 +38,7 @@ namespace AssistantTeacher
                 ReadKey();
                 Environment.Exit(0);
             }
-            else if (confirmSaveToTextFile == "no")
+            else if (confirmSaveToTextFile == "n")
             {
                 Thread.Sleep(500);
                 WriteLine("Okay! When you're finished, press any key to exit the program.");
@@ -49,7 +50,7 @@ namespace AssistantTeacher
                 WriteLine("\nI'm sorry, I don't recognize that input. Please press any key to try again...");
                 ReadKey();
                 Clear();
-                CreateTextFile(studentNames);
+                CreateTextFile(studentNames, className);
             }
         }
     }

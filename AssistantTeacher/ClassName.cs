@@ -16,16 +16,16 @@ namespace AssistantTeacher
             Thread.Sleep(500);
             WriteLine("First, please tell me the name of the class that you're teaching: ");
 
-            string? className = UserInput.TeacherInput();
+            string className = UserInput.TeacherInput();
 
             Thread.Sleep(500);
             WriteLine("\nGreat! You're teaching " + className + ", is that correct?");
             WriteLine("\nType y and press enter to confirm. Or type n and press enter to start over.");
 
-            ConfirmClassName();
+            ConfirmClassName(className);
         }
 
-        private static void ConfirmClassName()
+        private static void ConfirmClassName(string className)
         {
             string? confirmClassName = UserInput.TeacherInput().ToLower();
 
@@ -33,7 +33,7 @@ namespace AssistantTeacher
             {
                 WriteLine("\nAwesome. Please press any key to continue...");
                 ReadKey();
-                StudentNumber.GetTotalNumberOfStudents();
+                StudentNumber.GetTotalNumberOfStudents(className);
             }
             else if (confirmClassName == "n")
             {

@@ -10,7 +10,7 @@ namespace AssistantTeacher
     public class StudentList
     {
 
-        public static void CreateStudentList(int studentNum)
+        public static void CreateStudentList(int studentNumber, string className)
         {
             Clear();
             WriteLine("Now, please enter the names of your students. ");
@@ -18,7 +18,7 @@ namespace AssistantTeacher
             WriteLine("You may use formats like [ FirstName LastName ] or [ LastName, FirstName ]");
             WriteLine("\nPlease enter the student names below: ");
 
-            string[] studentNames = new string[studentNum];
+            string[] studentNames = new string[studentNumber];
 
             for (int i = 0; i < studentNames.Length; i++)
             {
@@ -31,10 +31,10 @@ namespace AssistantTeacher
             Thread.Sleep(500);
             WriteLine("Please press any key and I will create an alphabatized list of their names on the following screen...");
             ReadKey();
-            CreateSortedStudentList(studentNames);
+            CreateSortedStudentList(studentNames, className);
         }
 
-        public static void CreateSortedStudentList(string[] studentNames)
+        public static void CreateSortedStudentList(string[] studentNames, string className)
         {
             Array.Sort(studentNames);
 
@@ -47,7 +47,7 @@ namespace AssistantTeacher
                 WriteLine(studentOrder + ". " + studentNames[i]);
             }
 
-            StudentListTextFile.CreateTextFile(studentNames);
+            StudentListTextFile.CreateTextFile(studentNames, className);
         }
     }
 }
