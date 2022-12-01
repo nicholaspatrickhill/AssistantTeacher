@@ -11,7 +11,6 @@ namespace AssistantTeacher
     {
         public static string TeacherInput()
         {
-            ForegroundColor = ConsoleColor.Cyan;
             string? input = ReadLine() ?? string.Empty;
             return input;
         }

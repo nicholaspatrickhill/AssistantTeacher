@@ -34,7 +34,7 @@ namespace AssistantTeacher
 
                     Thread.Sleep(500);
                     WriteLine("\nYou have " + studentNumber + " students! Is that correct?");
-                    WriteLine("Press y and press enter to confirm. Or type n and press enter to start over.");
+                    WriteLine("\nPress y and press enter to confirm. Or type n and press enter to start over.");
                     ConfirmStudentNum(studentNumber);
                 }
             }
@@ -60,7 +60,7 @@ namespace AssistantTeacher
             }
             else if (confimStudentNum == "n")
             {
-                WriteLine("\nOh No! Press any key to start over...");
+                WriteLine("\nOh no! Press any key to start over...");
                 ReadKey();
                 GetTotalNumberOfStudents();
             }

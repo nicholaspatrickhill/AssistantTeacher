@@ -43,7 +43,8 @@ namespace AssistantTeacher
 
             for (int i = 0; i < studentNames.Length; i++)
             {
-                WriteLine(studentNames[i]);
+                int studentOrder = i + 1;
+                WriteLine(studentOrder + ". " + studentNames[i]);
             }
 
             // TODO MAKE A PRINT TO FILE SCREEN AS NEXT OPTION

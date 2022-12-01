@@ -19,8 +19,8 @@ namespace AssistantTeacher
             string? className = UserInput.TeacherInput();
 
             Thread.Sleep(500);
-            WriteLine("\nGreat! You're teaching " + className + " is that correct?");
-            WriteLine("Type y and press enter to confirm. Or type n and press enter to start over.");
+            WriteLine("\nGreat! You're teaching " + className + ", is that correct?");
+            WriteLine("\nType y and press enter to confirm. Or type n and press enter to start over.");
 
             ConfirmClassName();
         }
@@ -37,7 +37,7 @@ namespace AssistantTeacher
             }
             else if (confirmClassName == "n")
             {
-                WriteLine("\nOh No! Press any key to start over...");
+                WriteLine("\nOh no! Press any key to start over...");
                 ReadKey();
                 GetClassName();
             }
