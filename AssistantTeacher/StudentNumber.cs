@@ -14,7 +14,7 @@ namespace AssistantTeacher
             Clear();
             WriteLine("Next, please tell me the total number of students in your class: ");
 
-            string? teacherInput = ReadLine();
+            string? teacherInput = UserInput.TeacherInput().ToLower();
             int studentNumber;
 
             try
@@ -50,7 +50,7 @@ namespace AssistantTeacher
 
         private static void ConfirmStudentNum(int studentNum)
         {
-            string? confimStudentNum = ReadLine().ToLower();
+            string? confimStudentNum = UserInput.TeacherInput().ToLower();
 
             if (confimStudentNum == "y")
             {

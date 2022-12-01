@@ -16,7 +16,7 @@ namespace AssistantTeacher
             Thread.Sleep(500);
             WriteLine("First, please tell me the name of the class that you're teaching: ");
 
-            string? className = ReadLine();
+            string? className = UserInput.TeacherInput();
 
             Thread.Sleep(500);
             WriteLine("\nGreat! You're teaching " + className + " is that correct?");
@@ -27,7 +27,7 @@ namespace AssistantTeacher
 
         private static void ConfirmClassName()
         {
-            string? confirmClassName = ReadLine().ToLower();
+            string? confirmClassName = UserInput.TeacherInput().ToLower();
 
             if (confirmClassName == "y")
             {

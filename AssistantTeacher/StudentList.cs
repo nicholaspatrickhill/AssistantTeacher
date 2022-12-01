@@ -22,7 +22,7 @@ namespace AssistantTeacher
 
             for (int i = 0; i < studentNames.Length; i++)
             {
-                studentNames[i] = ReadLine();
+                studentNames[i] = UserInput.TeacherInput();
             }
 
             // TODO MAKE A CONFIRMATION OF STUDENT LIST SCREEN
