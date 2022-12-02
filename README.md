@@ -1,6 +1,6 @@
 **AssistantTeacher** is a console application designed to help instructors compile information about their classes.
 
-##NOTES
+## NOTES
 **PROGRAM START:** The program begins by introducing itself on the first screen by calling WriteLine.
 The user is asked to continue by calling ReadKey to check for their response.
 
@@ -49,6 +49,6 @@ The studentOrder integer numbers the students beginning at 1 and ending in the v
 Those elements are then displayed by calling file.WriteLine.
 If the user does not wish to save the information to a text file, they are asked to confirm that they wish to terminate the program.
 
-##INSTRUCTIONS
+## INSTRUCTIONS
 Follow the on-screen prompts to input your name, your class name and size, and the names of your students.
 Please note that AssistantTeacher supports classes of up to 30 students.
