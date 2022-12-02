@@ -9,20 +9,20 @@ namespace AssistantTeacher
 {
     public class StudentListTextFile
     {
-        public static void ConfirmCreateTextFile(string[] studentNames, string className)
+        public static void ConfirmCreateTextFile(string[] studentNames, string className, string teacherName)
         {
             Thread.Sleep(500);
-            WriteLine("\nWould you like to save the list as a text file?");
+            WriteLine("\nWould you like to save this information as a text file?");
             WriteLine("\nType y and press enter to confirm. Or type n and press enter to exit the program");
 
             string? confirmSaveToTextFile = UserInput.TeacherInput().ToLower();
 
             if (confirmSaveToTextFile == "y")
             {
-                StreamWriter file = CreateTextFile(studentNames, className);
+                StreamWriter file = CreateTextFile(studentNames, className, teacherName);
 
                 Thread.Sleep(500);
-                WriteLine("Your student list has been saved to a text file at C:\\temp\\MyStudentList.txt.");
+                WriteLine("\nYour student list has been saved to a text file at C:\\temp\\MyStudentList.txt.");
                 Thread.Sleep(500);
                 WriteLine("\nWhen you're finished, press any key to exit the program.");
                 ReadKey();
@@ -40,16 +40,16 @@ namespace AssistantTeacher
                 WriteLine("\nI'm sorry, I don't recognize that input. Please press any key to try again...");
                 ReadKey();
                 Clear();
-                ConfirmCreateTextFile(studentNames, className);
+                ConfirmCreateTextFile(studentNames, className, teacherName);
             }
         }
 
-        private static StreamWriter CreateTextFile(string[] studentNames, string className)
+        private static StreamWriter CreateTextFile(string[] studentNames, string className, string teacherName)
         {
             string myStudentList = @"C:\temp\MyStudentList.txt";
             StreamWriter file = new StreamWriter(myStudentList);
 
-            // TODO add teacher name
+            file.WriteLine("Instructor: " + teacherName);
             file.WriteLine("Class: " + className + "\n");
 
             for (int i = 0; i < studentNames.Length; i++)

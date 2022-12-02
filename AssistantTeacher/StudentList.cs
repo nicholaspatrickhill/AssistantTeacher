@@ -9,13 +9,12 @@ namespace AssistantTeacher
 {
     public class StudentList
     {
-
-        public static void CreateStudentList(int studentNumber, string className)
+        public static void CreateStudentList(int studentNumber, string className, string teacherName)
         {
             Clear();
-            WriteLine("Now, please enter the names of your students. ");
+            WriteLine("Please enter the names of your students. ");
             Thread.Sleep(500);
-            WriteLine("You may use formats like [ FirstName LastName ] or [ LastName, FirstName ]");
+            WriteLine("You may use formats like [ FirstName LastName ] or [ LastName, FirstName ].");
             WriteLine("\nPlease enter the student names below: ");
 
             string[] studentNames = new string[studentNumber];
@@ -29,18 +28,19 @@ namespace AssistantTeacher
 
             WriteLine("\nGreat! That's all of your students.");
             Thread.Sleep(500);
-            WriteLine("Please press any key and I will compiled your class information on the following screen...");
+            WriteLine("Please press any key and I will compile your class information on the following screen...");
             ReadKey();
-            CreateSortedStudentList(studentNames, className);
+            CreateSortedStudentList(studentNames, className, teacherName);
         }
 
-        public static void CreateSortedStudentList(string[] studentNames, string className)
+        public static void CreateSortedStudentList(string[] studentNames, string className, string teacherName)
         {
             Array.Sort(studentNames);
 
             Clear();
-            // TODO add teacher name
-            Console.WriteLine("Class: " + className + "\n");
+            Thread.Sleep(1000);
+            WriteLine("Instructor: " + teacherName);
+            WriteLine("Class: " + className + "\n");
 
             for (int i = 0; i < studentNames.Length; i++)
             {
@@ -48,7 +48,7 @@ namespace AssistantTeacher
                 WriteLine(studentOrder + ". " + studentNames[i]);
             }
 
-            StudentListTextFile.ConfirmCreateTextFile(studentNames, className);
+            StudentListTextFile.ConfirmCreateTextFile(studentNames, className, teacherName);
         }
     }
 }

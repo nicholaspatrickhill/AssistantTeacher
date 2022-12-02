@@ -9,10 +9,10 @@ namespace AssistantTeacher
 {
     public class StudentNumber
     {
-        public static void GetTotalNumberOfStudents(string className)
+        public static void GetTotalNumberOfStudents(string className, string teacherName)
         {
             Clear();
-            WriteLine("Next, please tell me the total number of students in your class using the number keys: ");
+            WriteLine("Now, please tell me the total number of students in your class using the number keys: ");
 
             string teacherInput = UserInput.TeacherInput();
             int studentNumber;
@@ -34,7 +34,7 @@ namespace AssistantTeacher
                     Thread.Sleep(500);
                     WriteLine("\nYou have " + studentNumber + " students! Is that correct?");
                     WriteLine("\nType y and press enter to confirm. Or type n and press enter to start over.");
-                    ConfirmStudentNum(studentNumber, className);
+                    ConfirmStudentNum(studentNumber, className, teacherName);
                 }
             }
             catch (FormatException)
@@ -43,11 +43,11 @@ namespace AssistantTeacher
                 WriteLine("\n{0} does not appear to be a number", teacherInput);
                 WriteLine("Press any key to try again...");
                 ReadKey();
-                GetTotalNumberOfStudents(className);
+                GetTotalNumberOfStudents(className, teacherName);
             }
         }
 
-        private static void ConfirmStudentNum(int studentNumber, string className)
+        private static void ConfirmStudentNum(int studentNumber, string className, string teacherName)
         {
             string? confimStudentNum = UserInput.TeacherInput().ToLower();
 
@@ -55,19 +55,19 @@ namespace AssistantTeacher
             {
                 WriteLine("\nExcellent! Please press any key to continue...");
                 ReadKey();
-                StudentList.CreateStudentList(studentNumber, className);
+                StudentList.CreateStudentList(studentNumber, className, teacherName);
             }
             else if (confimStudentNum == "n")
             {
                 WriteLine("\nOh no! Press any key to start over...");
                 ReadKey();
-                GetTotalNumberOfStudents(className);
+                GetTotalNumberOfStudents(className, teacherName);
             }
             else
             {
                 WriteLine("\nI'm sorry, I don't recognize that input. Press any key to try again...");
                 ReadKey();
-                GetTotalNumberOfStudents(className);
+                GetTotalNumberOfStudents(className, teacherName);
             }
         }
     }

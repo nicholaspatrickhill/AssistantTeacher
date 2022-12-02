@@ -15,7 +15,7 @@ namespace AssistantTeacher
             WriteLine("\nPress any key to continue...");
             ReadKey();
 
-            ClassName.GetClassName();
+            TeacherName.GetTeacherName();
         }
     }
 }
