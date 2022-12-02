@@ -40,7 +40,7 @@ The studentOrder integer numbers the students beginning at 1 and ending in the v
 Those elements are then displayed by calling WriteLine.
 ConfirmCreateTextFile is then called.
 
-**SAVING TO TEXT FILE** ConfirmCreateTextFile asks the user if they wish to save the information that AssistantTeacher just compiled for them to a text file.
+**SAVING TO TEXT FILE:** ConfirmCreateTextFile asks the user if they wish to save the information that AssistantTeacher just compiled for them to a text file.
 If the user confirms that they do wish to create a text file, StreamWriter is called.
 The teacherName and className strings are passed into ConfirmCreateTextFile as arguments.
 Those values are displayed in the text file by calling file.WriteLine.
