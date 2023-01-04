@@ -41,6 +41,7 @@ namespace AssistantTeacher
             Thread.Sleep(1000);
             WriteLine("Instructor: " + teacherName);
             WriteLine("Class: " + className + "\n");
+            WriteLine("Students:");
 
             for (int i = 0; i < studentNames.Length; i++)
             {
